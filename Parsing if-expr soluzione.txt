@@ -1,0 +1,15 @@
+Per supportare l'espressione ternaria if nel tuo parser ricorsivo discescente, in modo simile alla struttura if-then-else di Haskell, sarà necessario modificare sia il modulo dell'albero delle espressioni (syntree.py) che il modulo del parser (parse.py). Questo permetterà al parser di gestire espressioni in cui le condizioni possono dirigere il flusso dell'elaborazione verso due possibili rami di esecuzione.
+
+1. Aggiunta della classe IfExpr in syntree.py
+Devi definire una nuova classe IfExpr per gestire l'espressione ternaria if. Questa classe memorizzerà la condizione, il ramo che viene eseguito se la condizione è vera (then_branch) e il ramo che viene eseguito se la condizione è falsa (else_branch).
+
+2. Modifica della funzione factor in parse.py
+La funzione factor deve essere aggiornata per analizzare la nuova sintassi if. Puoi fare questo aggiungendo un controllo per la parola chiave if e poi analizzando la condizione, il ramo vero e il ramo falso di conseguenza.
+
+Regole Grammaticali Aggiunte
+
+# Regole grammaticali aggiunte:
+# if_expr = "if" expr "then" expr "else" expr
+
+
+Con queste modifiche, il tuo parser sarà in grado di supportare le espressioni ternarie if, permettendo la valutazione condizionale di rami diversi basati sulla condizione fornita

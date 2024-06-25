@@ -1,0 +1,9 @@
+Per estendere il supporto per le espressioni let nel tuo parser ricorsivo discescente, permettendo la definizione di multiple variabili in un'unica istruzione let, simile a quanto trovato in alcuni linguaggi di programmazione funzionali, dovrai modificare sia il modulo dell'albero delle espressioni (syntree.py) che il modulo del parser (parse.py). Questo aggiornamento permetterà di gestire definizioni di variabili multiple all'interno di una singola espressione let.
+
+1. Modifica della classe LetExpr in syntree.py
+Dovrai aggiornare la classe LetExpr per supportare una lista di variabili e le rispettive espressioni di assegnazione, invece di una singola coppia variabile-espressione.
+
+2. Modifica della funzione factor in parse.py
+La funzione factor deve essere aggiornata per analizzare la sintassi modificata di let, che ora deve gestire multiple definizioni di variabili.
+
+Queste modifiche permetteranno al parser di gestire espressioni let con multiple definizioni di variabili, offrendo una maggiore flessibilità e aderenza ai linguaggi di programmazione funzionale che supportano strutture simili.

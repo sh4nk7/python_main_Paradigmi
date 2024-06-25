@@ -1,0 +1,16 @@
+Per implementare il supporto per l'espressione let, simile alla costruzione let ... in ... di Haskell, nel tuo parser ricorsivo discescente, sarà necessario apportare modifiche sia al modulo dell'albero delle espressioni (syntree.py) che al modulo del parser (parse.py). Questa modifica permetterà al parser di gestire espressioni in cui una variabile può essere definita e utilizzata all'interno di uno scope limitato, garantendo che la sua definizione non influenzi lo scope esterno.
+
+1. Aggiunta della classe LetExpr in syntree.py
+Devi definire una nuova classe LetExpr che catturi la struttura dell'espressione let. Questa classe memorizzerà il nome della variabile, l'espressione che assegna un valore alla variabile (assign_expr) e l'espressione all'interno della quale la variabile viene utilizzata (inner_expr).
+
+
+2. Modifica della funzione factor in parse.py
+La funzione factor deve essere aggiornata per analizzare la sintassi let. Puoi farlo aggiungendo un controllo per la parola chiave let e poi analizzando il nome della variabile, l'espressione di assegnazione e l'espressione interna di conseguenza.
+
+Regole Grammaticali Aggiunte
+
+# Regole grammaticali aggiunte:
+# let_expr = "let" identificatore "=" expr "in" expr
+
+
+Con queste modifiche, il tuo parser supporterà le espressioni let con definizioni di variabili a scope limitato. Questa funzionalità permetterà la definizione di variabili all'interno di uno scope limitato come mostrato negli esempi forniti.
